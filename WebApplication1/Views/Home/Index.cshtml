@@ -1,0 +1,26 @@
+﻿@model List<FAQ>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="nav nav-pills">
+            <a asp-controller="Home" asp-action="Index" asp-route-catsShown="All" asp-route-topsShown="All" class="nav-item nav-link">All FAQs</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-topsShown="js" class="nav-item nav-link">Javascript</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-topsShown="cpp" class="nav-item nav-link">C++</a>
+        </nav>
+    </div>
+    <div class="row">
+        <span class="list-group col-1">
+            <a asp-controller="Home" asp-action="Index" asp-route-catsShown="gen"class="list-group-item">General</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-catsShown="his" class="list-group-item">History</a>
+        </span>
+        @foreach (var FAQ in Model)
+            {
+                <div class="col-1" />
+                <div class="col-11">
+                    <h3>@FAQ.Question</h3>
+                    <p>@FAQ.Answer</p>
+                    <span>Topic: @FAQ.Topic.Name Category: @FAQ.Category.Name</span>
+                </div>
+            }
+    </div>
+</div>
